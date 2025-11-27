@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Clone') {
+            steps {
+               git 'https://github.com/12-02-1991/Terraform_Practivce.git'
+            }
+        }
+         stage('Terraform init') {
+            steps {
+             sh 'terraform init'
+            }
+        }
+         stage('Terraform plan') {
+            steps {
+                 sh 'terraform plan'
+            }
+        }
+        stage('Terraform apply') {
+            steps {
+                 sh 'terraform apply -auto-approve'
+            }
+        }
+    }
+}
