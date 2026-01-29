@@ -62,13 +62,13 @@ data "aws_ami" "amzlinux2" {
   }
 }
 
-resource "aws_instance" "name" {
+resource "aws_instance" "name1" {
     ami=data.aws_ami.amzlinux1.id
     instance_type = "t2.micro"
     subnet_id = data.aws_subnet.sub1.id
 
 }
-resource "aws_instance" "name" {
+resource "aws_instance" "name2" {
     ami=data.aws_ami.amzlinux2.id
     instance_type = "t2.micro"
     subnet_id = data.aws_subnet.sub2.id
